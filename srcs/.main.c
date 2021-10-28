@@ -19,13 +19,13 @@ int main(void)
     int i;
     int j;
 
-    printf("testing... \n");
+    printf("testing p 8... \n");
     printf("\n");
     ft_printf("ft_printf:");
-    i = ft_printf(" %x ", -1);
+    i = ft_printf(" %p ", -ULONG_MAX);
     printf("\n");
     printf("   printf:");
-    j = printf(" %x ", -1);
+    j = printf(" %p ", -ULONG_MAX);
     printf("\n");
     printf("returns :\n     mine = %i\n     printf = %i", i, j);
     printf("\n");

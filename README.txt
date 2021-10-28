@@ -6,7 +6,7 @@
 #    By: jcourtem <jcourtem@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/27 13:15:16 by JEAN-SEBA         #+#    #+#              #
-#    Updated: 2021/10/27 20:14:39 by jcourtem         ###   ########.fr        #
+#    Updated: 2021/10/28 09:49:17 by jcourtem         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,10 @@ Function Description by files:
 
     
 Modifications Log: 
+
+28-10*2021:
+
+    after reformating the ft_put_p.c source, I have a segfault because of line # 36 ¨*nb = (unsigned long)n;¨ 
 
 27-10-2021:
 

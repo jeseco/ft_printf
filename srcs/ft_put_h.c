@@ -6,13 +6,13 @@
 /*   By: jcourtem <jcourtem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:08:19 by JEAN-SEBA         #+#    #+#             */
-/*   Updated: 2021/10/27 21:05:42 by JEAN-SEBA        ###   ########.fr       */
+/*   Updated: 2021/10/28 10:37:57 by jcourtem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-static unsigned int	make_hex(unsigned int va, int *hex)
+unsigned int	make_hex(unsigned long long va, int *hex)
 {
 	int	j;
 
