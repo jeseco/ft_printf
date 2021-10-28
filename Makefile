@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC 			= 	gcc -Wextra -Wall -Werror -g
-NAME 		= 	libftprintf
+NAME 		= 	libftprintf.a
 LIBFT_PATH	=	include/libft/
 INC			=	include/ft_printf.h
 SRCS		=	srcs/
@@ -25,7 +25,8 @@ FILES		=	ft_check_flag.c \
 				ft_intlen.c \
 				ft_strlen.c \
 			   	ft_put_c.c \
-				ft_putnbr.c
+				ft_putnbr.c \
+				ft_put_percent.c 
 SRCS_FILES	=	$(addprefix $(SRCS),$(FILES))	
 OBJS 		= 	$(SRCS_FILES:.c=.o)
 

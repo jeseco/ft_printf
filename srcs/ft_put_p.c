@@ -6,7 +6,7 @@
 /*   By: jcourtem <jcourtem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:00:58 by JEAN-SEBA         #+#    #+#             */
-/*   Updated: 2021/10/25 16:12:54 by JEAN-SEBA        ###   ########.fr       */
+/*   Updated: 2021/10/27 18:49:48 by jcourtem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,17 @@ int	ft_put_p_helper(void *n)
 	return (i);
 }
 
-int	ft_put_p(va_list ap, int count)
+void	ft_put_p(va_list ap, int *pt_count)
 {
 	void	*p;
 
 	p = va_arg(ap, void *);
 	write (1, "0x", 2);
-	count += 2;
+	*pt_count += 2;
 	if (p == 0)
-		return (count += ft_put_c('0'));
-	count += ft_put_p_helper(p);
-	return (count);
+	{	
+		*pt_count += ft_put_c('0');
+		return ;
+	}	
+	*pt_count += ft_put_p_helper(p);
 }

@@ -18,17 +18,14 @@ int main(void)
 {
     int i;
     int j;
-    char    *args = " \%x , 16";
 
     printf("testing... \n");
     printf("\n");
-    printf("args = %s\n", args);
-    printf("\n");
     ft_printf("ft_printf:");
-    i = ft_printf("%%p is how you print a pointer in printf");
+    i = ft_printf(" %x ", -1);
     printf("\n");
     printf("   printf:");
-    j = printf("%%p is how you print a pointer in printf");
+    j = printf(" %x ", -1);
     printf("\n");
     printf("returns :\n     mine = %i\n     printf = %i", i, j);
     printf("\n");

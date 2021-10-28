@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_s.c                                         :+:      :+:    :+:   */
+/*   ft_put_percent.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcourtem <jcourtem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/05 10:04:09 by JEAN-SEBA         #+#    #+#             */
-/*   Updated: 2021/10/27 16:55:47 by jcourtem         ###   ########.fr       */
+/*   Created: 2021/10/26 19:47:43 by JEAN-SEBA         #+#    #+#             */
+/*   Updated: 2021/10/27 21:07:02 by JEAN-SEBA        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-void	ft_put_s(va_list ap, int *pt_count)
+int	ft_put_percent(const char *str, int i, int *pt_count)
 {
-	char	*s;
-	int		i;
+	int	percent_amount_in_str;
+	int	percent_amount_to_print;
 
-	s = va_arg(ap, char *);
-	i = 0;
-	if (s != NULL)
-	{
-		while (s[i])
-		{
-			write (1, &s[i++], 1);
-			*pt_count += 1;
-		}
-	}
-	else
-	{
-		s = "(null)";
-		while (s[i])
-		{
-			write (1, &s[i++], 1);
-			*pt_count += 1;
-		}
-	}
+	percent_amount_in_str = 0;
+	i--;
+	while (str[++i] == '%')
+		percent_amount_in_str++;
+	if (percent_amount_in_str % 2 > 0)
+		i--;
+	percent_amount_to_print = percent_amount_in_str / 2;
+	while (percent_amount_to_print--)
+		*pt_count += ft_put_c('%');
+	return (i);
 }

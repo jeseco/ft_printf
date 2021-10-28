@@ -6,33 +6,27 @@
 /*   By: jcourtem <jcourtem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/31 10:00:30 by JEAN-SEBA         #+#    #+#             */
-/*   Updated: 2021/10/22 15:00:31 by jcourtem         ###   ########.fr       */
+/*   Updated: 2021/10/27 16:50:02 by jcourtem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 #include <stdarg.h>
 
-int	ft_check_flag(const char flag, va_list ap, int count)
+void	ft_check_flag(const char flag, va_list ap, int *pt_count)
 {	
 	if (flag == 'c')
-		count += ft_put_c(va_arg(ap, int));
+		*pt_count += ft_put_c(va_arg(ap, int));
 	else if (flag == 'd' || flag == 'i')
-		count += ft_put_i(ap);
+		*pt_count += ft_put_i(ap);
 	else if (flag == 'p')
-		count = ft_put_p(ap, count);
+		ft_put_p(ap, pt_count);
 	else if (flag == 's')
-		count = ft_put_s(ap, count);
+		ft_put_s(ap, pt_count);
 	else if (flag == 'u')
-		count = ft_put_u(ap, count);
+		ft_put_u(ap, pt_count);
 	else if (flag == 'x')
-		count = ft_put_h(ap, count);
+		ft_put_h(ap, pt_count);
 	else if (flag == 'X')
-		count = ft_put_upperh(ap, count);
-	else if (flag == '%')
-	{
-		write (1, "%", 1);
-		count++;
-	}
-	return (count);
+		ft_put_upperh(ap, pt_count);
 }

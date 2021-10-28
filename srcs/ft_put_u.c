@@ -6,13 +6,13 @@
 /*   By: jcourtem <jcourtem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:06:02 by JEAN-SEBA         #+#    #+#             */
-/*   Updated: 2021/10/25 16:15:09 by JEAN-SEBA        ###   ########.fr       */
+/*   Updated: 2021/10/27 18:40:57 by jcourtem         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_put_u(va_list ap, int count)
+void	ft_put_u(va_list ap, int *pt_count)
 {
 	unsigned int	u;
 
@@ -24,8 +24,8 @@ int	ft_put_u(va_list ap, int count)
 	}
 	else
 	{
-		count += ft_put_c(u + '0');
-		return (count);
+		*pt_count += ft_put_c(u + '0');
+		return ;
 	}
-	return (count += ft_uintlen(u));
+	*pt_count += ft_uintlen(u);
 }

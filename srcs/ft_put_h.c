@@ -6,74 +6,77 @@
 /*   By: jcourtem <jcourtem@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/05 10:08:19 by JEAN-SEBA         #+#    #+#             */
-/*   Updated: 2021/10/22 14:48:44 by jcourtem         ###   ########.fr       */
+/*   Updated: 2021/10/27 21:05:42 by JEAN-SEBA        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_printf.h"
 
-int	ft_put_upperh(va_list ap, int count)
+static unsigned int	make_hex(unsigned int va, int *hex)
 {
-	unsigned int	t[10];
-	int				j;
-	unsigned int	va;
+	int	j;
 
-	va = va_arg(ap, unsigned int);
 	j = 0;
 	while (va >= 16)
 	{
-		t[j++] = va % 16;
+		*(hex + j) = va % 16;
 		va = va / 16;
+		j++;
 	}
-	if (va >= 10 && va <= 15)
-		count += ft_put_c('A' + (va - 10));
-	else
-	{
-		ft_putnbr(va);
-		count++;
-	}
-	while (j-- != 0)
-	{
-		if (!(t[j] >= 10 && t[j] <= 15))
-		{	
-			ft_putnbr(t[j]);
-			count++;
-		}	
-		else
-			count += ft_put_c('A' + (t[j] - 10));
-	}
-	return (count);
+	*(hex + j) = va;
+	return (j + 1);
 }
 
-int	ft_put_h(va_list ap, int count)
+void	ft_put_upperh(va_list ap, int *pt_count)
 {
-	unsigned int	t[10];
+	int				t[7];
 	int				j;
 	unsigned int	va;
 
 	va = va_arg(ap, unsigned int);
 	j = 0;
-	while (va >= 16)
-	{
-		t[j++] = va % 16;
-		va = va / 16;
-	}
-	if (va >= 10 && va <= 15)
-		count += ft_put_c('a' + (va - 10));
+	if (va >= 10)
+		j = make_hex(va, t);
 	else
 	{
 		ft_putnbr(va);
-		count++;
+		*pt_count += 1;
 	}
 	while (j-- != 0)
 	{
 		if (!(t[j] >= 10 && t[j] <= 15))
 		{	
 			ft_putnbr(t[j]);
-			count++;
+			*pt_count += 1;
 		}	
 		else
-			count += ft_put_c('a' + (t[j] - 10));
+			*pt_count += ft_put_c('A' + (t[j] - 10));
 	}
-	return (count);
+}
+
+void	ft_put_h(va_list ap, int *pt_count)
+{
+	int				hex[7];
+	int				j;
+	unsigned int	va;
+
+	va = va_arg(ap, unsigned int);
+	j = 0;
+	if (va >= 10)
+		j = make_hex(va, hex);
+	else
+	{
+		ft_putnbr(va);
+		*pt_count += 1;
+	}
+	while (j-- != 0)
+	{
+		if (!(hex[j] >= 10 && hex[j] <= 15))
+		{	
+			ft_putnbr(hex[j]);
+			*pt_count += 1;
+		}	
+		else
+			*pt_count += ft_put_c('a' + (hex[j] - 10));
+	}
 }
