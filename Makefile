@@ -6,7 +6,7 @@
 #    By: JEAN-SEBA <jcourtem@student.42quebec>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/30 18:55:23 by JEAN-SEBA         #+#    #+#              #
-#    Updated: 2021/10/12 09:34:19 by JEAN-SEBA        ###   ########.fr        #
+#    Updated: 2021/10/29 14:40:36 by JEAN-SEBA        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ FILES		=	ft_check_flag.c \
 SRCS_FILES	=	$(addprefix $(SRCS),$(FILES))	
 OBJS 		= 	$(SRCS_FILES:.c=.o)
 
-all: $(NAME) clean
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS) $(INC)
