@@ -30,7 +30,7 @@ FILES		=	ft_check_flag.c \
 SRCS_FILES	=	$(addprefix $(SRCS),$(FILES))	
 OBJS 		= 	$(SRCS_FILES:.c=.o)
 
-all: $(NAME) clean
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS) $(INC)
