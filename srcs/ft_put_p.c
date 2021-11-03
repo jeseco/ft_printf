@@ -47,8 +47,7 @@ void	make_p(void *n, int *pt_count)
 	if (!(nb >= 10 && nb <= 15))
 	{
 		ft_putnbr(nb);
-		if (n > 0)
-			i++;
+		i++;
 	}
 	print_p(j, i, t, pt_count);
 }
