@@ -6,7 +6,7 @@
 #    By: JEAN-SEBA <jcourtem@student.42quebec>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/30 18:55:23 by JEAN-SEBA         #+#    #+#              #
-#    Updated: 2021/11/01 11:28:26 by JEAN-SEBA        ###   ########.fr        #
+#    Updated: 2021/11/03 13:18:07 by JEAN-SEBA        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,10 +37,7 @@ $(NAME): $(OBJS)
 
 $(OBJS):
 
-main: $(OBJS)
-	gcc -g srcs/.main.c $(OBJS) $(INC)
-	make clean
-	
+.Phony: clean fclean re
 clean:
 	rm $(OBJS)
 
