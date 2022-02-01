@@ -6,7 +6,7 @@
 #    By: JEAN-SEBA <jcourtem@student.42quebec>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/30 18:55:23 by JEAN-SEBA         #+#    #+#              #
-#    Updated: 2021/11/03 13:18:07 by JEAN-SEBA        ###   ########.fr        #
+#    Updated: 2022/01/26 10:50:35 by jcourtem         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,11 @@ $(NAME): $(OBJS)
 $(OBJS):
 
 .Phony: clean fclean re
+
 clean:
-	rm $(OBJS)
+	rm -rf $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
